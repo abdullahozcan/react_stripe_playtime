@@ -3,8 +3,8 @@ import { Elements, CardElement, useStripe, useElements, ElementsConsumer } from 
 import { loadStripe } from '@stripe/stripe-js';
 import logo from './logo.svg';
 import './App.css';
-import { validate } from 'json-schema';
 import { useAsync } from 'react-async';
+import ReactDOM from "react-dom";
 
 // const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_TEST_API_KEY);
 
@@ -25,8 +25,32 @@ const loadUsers = async () =>
   }).then(res => (res.ok ? res : Promise.reject(res)))
     .then(res => res.json())
 
+const people = [
+  "Siri",
+  "Alexa",
+  "Google",
+  "Facebook",
+  "Twitter",
+  "Linkedin",
+  "Sinkedin"
+];
+
 
 function App() {
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const [searchResults, setSearchResults] = React.useState([]);
+
+  const handleChange = event => {
+    setSearchTerm(event.target.value);
+  };
+
+  useEffect(() => {
+    const results = people.filter(person =>
+      person.toLowerCase().includes(searchTerm)
+    );
+    setSearchResults(results);
+  }, [searchTerm]);
+
   const { data: all_customers, error, isLoading } = useAsync({ promiseFn: loadUsers })
 
 
@@ -38,8 +62,24 @@ function App() {
 
     return (
       <div className="App">
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchTerm}
+          onChange={handleChange}
+        />
+        <ul>
+          {searchResults.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+          </ul>
           <p>{all_customers.data.map(user => (
             <p>{user.email}</p>
           ))}</p>
