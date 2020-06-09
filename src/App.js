@@ -18,9 +18,33 @@ const loadUsers = async () =>
   }).then(res => (res.ok ? res : Promise.reject(res)))
     .then(res => res.json());
 
+const people = [
+  "Siri",
+  "Alexa",
+  "Google",
+  "Facebook",
+  "Twitter",
+  "Linkedin",
+  "Sinkedin"
+];
+
 
 function App() {
-  const { data: all_customers, error, isLoading } = useAsync({ promiseFn: loadUsers });
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const [searchResults, setSearchResults] = React.useState([]);
+
+  const handleChange = event => {
+    setSearchTerm(event.target.value);
+  };
+
+  useEffect(() => {
+    const results = people.filter(person =>
+      person.toLowerCase().includes(searchTerm)
+    );
+    setSearchResults(results);
+  }, [searchTerm]);
+
+  const { data: all_customers, error, isLoading } = useAsync({ promiseFn: loadUsers })
   if (isLoading) return "Loading..."
   if (error) return `Something went wrong: ${error.message}`
 
@@ -30,6 +54,18 @@ function App() {
   if (all_customers)
     return (
       <div className="App">
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchTerm}
+          onChange={handleChange}
+        />
+        <ul>
+          {searchResults.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>{unique.map(email => (
