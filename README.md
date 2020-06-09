@@ -1,3 +1,12 @@
+## Working on building a financial dashboard for Clever Programmer using Stripe & React
+
+In order to use the app, make sure to update your env file with either a TEST stripe key or LIVE stripe key.
+To do so...
+
+1. Create an `.env` file.
+2. Create variable called `REACT_APP_STRIPE_API_KEY=yourApiKeyGoesHere`
+3. Open up command line and do `npm start`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
