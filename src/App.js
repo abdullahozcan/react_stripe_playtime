@@ -42,6 +42,7 @@ function App() {
 
   const handleChange = event => {
     setSearchTerm(event.target.value);
+    console.log(searchTerm);
   };
 
   useEffect(() => {
@@ -76,10 +77,7 @@ function App() {
 
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-          </ul>
+
           <p>{all_customers.data.map(user => (
             <p>{user.email}</p>
           ))}</p>
