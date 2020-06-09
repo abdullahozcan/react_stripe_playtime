@@ -35,6 +35,7 @@ function App() {
 
   const handleChange = event => {
     setSearchTerm(event.target.value);
+    console.log(searchTerm);
   };
 
   useEffect(() => {
