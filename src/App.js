@@ -25,15 +25,15 @@ function App() {
   if (error) return `Something went wrong: ${error.message}`
 
   // Get only unique by expanding a Set of the same information
-  // let unique = [...new Set(all_customers.data.map(item => item.email))];
+  let unique = [...new Set(all_customers.data.map(item => item.email))];
 
   if (all_customers)
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>{all_customers.data.map(email => (
-            <p>{email.email}</p>
+          <p>{unique.map(email => (
+            <p>{email}</p>
           ))}</p>
           <p>
             Qazi is working on this app right now... <code>src/App.js</code> and
