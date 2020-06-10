@@ -9,7 +9,6 @@ let params = { limit: 20 }
 const stripe_auth = { "Authorization": `Bearer ${process.env.REACT_APP_STRIPE_API_KEY}` }
 const stripe_url = `https://api.stripe.com/v1/customers?limit=${params.limit}`;
 
-// Then we'll fetch user data from this API
 
 // https://css-tricks.com/fetching-data-in-react-using-react-async/
 // https://www.freecodecamp.org/forum/t/fetch-api-with-api-key/317584
