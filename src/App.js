@@ -40,10 +40,9 @@ function App() {
     <div className="App">
 
       <header className="App-header">
-        <PrettyButton />
+        <SnackyBar />
         <StripeList />
 
-        <SnackyBar />
         <Search />
         <img src={logo} className="App-logo" alt="logo" />
         <p>

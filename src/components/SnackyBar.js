@@ -35,14 +35,14 @@ export default function SnackyBar() {
 
     return (
         <div className={classes.root}>
-            <Button variant="outlined" onClick={handleClick}>
+            <Button variant="contained" onClick={handleClick} color="primary">
                 Open success snackbar
       </Button>
-            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success">
-                    This is a success message!
+                    Your stripe data has loaded successfully!
         </Alert>
             </Snackbar>
         </div>
-    );
+    )
 }
