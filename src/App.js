@@ -35,47 +35,33 @@ const loadCustomers = async () =>
 
 function App() {
 
-  const { data: all_customers, error, isLoading } = useAsync({ promiseFn: loadCustomers })
-  if (isLoading) return "Loading..."
-  if (error) return `Something went wrong: ${error.message}`
 
-  // Get only unique by expanding a Set of the same information
-  let unique_emails = [...new Set(all_customers.data.map(customer => customer.email))];
-  // let unique_names = [...new Set(all_customers.data.map(item => item.name))];
+  return (
+    <div className="App">
 
-  if (all_customers)
+      <header className="App-header">
+        <PrettyButton />
+        <CheckboxListSecondary />
 
-    return (
-      <div className="App">
-
-        <header className="App-header">
-          <PrettyButton />
-          <CheckboxListSecondary />
-
-          <SnackyBar />
-          <Search />
-          <img src={logo} className="App-logo" alt="logo" />
-          <ul>
-            {unique_emails.map(email => (
-              <li>{email}</li>
-            ))}
-          </ul>
-          <p>
-            Qazi is working on this app right now... <code>src/App.js</code> and
-            save to reload.
+        <SnackyBar />
+        <Search />
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Qazi is working on this app right now... <code>src/App.js</code> and
+          save to reload.
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
           </a>
-        </header>
+      </header>
 
-      </div>
-    )
+    </div>
+  )
 }
 
 export default App;
