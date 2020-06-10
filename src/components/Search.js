@@ -8,7 +8,7 @@ const people = [
     "Facebook",
     "Twitter",
     "Linkedin",
-    "Sinkedin"
+    "YouTube"
 ];
 
 function Search() {
