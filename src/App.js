@@ -4,6 +4,19 @@ import logo from './logo.svg';
 import Search from './components/Search';
 import SnackyBar from './components/SnackyBar';
 import PrettyButton from './components/PrettyButton';
+import LogRocket from 'logrocket';
+import CheckboxListSecondary from './components/CheckboxListSecondary';
+
+LogRocket.init('usduoh/clever-programmer-react-apps');
+
+LogRocket.identify('123456', {
+  name: 'Sonic the Hedgehog',
+  email: 'gottacodefast@gmail.com',
+
+  subscriptionType: 'premium',
+  favoriteFood: 'chili dogs'
+});
+
 
 let params = { limit: 20 }
 const stripe_auth = { "Authorization": `Bearer ${process.env.REACT_APP_STRIPE_API_KEY}` }
@@ -21,8 +34,6 @@ const loadCustomers = async () =>
 
 
 function App() {
-  const [searchTerm, setSearchTerm] = React.useState("");
-  const [searchResults, setSearchResults] = React.useState([]);
 
   const { data: all_customers, error, isLoading } = useAsync({ promiseFn: loadCustomers })
   if (isLoading) return "Loading..."
@@ -39,6 +50,7 @@ function App() {
 
         <header className="App-header">
           <PrettyButton />
+          <CheckboxListSecondary />
 
           <SnackyBar />
           <Search />
