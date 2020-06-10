@@ -53,7 +53,8 @@ export default function StripeList() {
   if (error) return `Something went wrong: ${error.message}`
 
   // Get only unique by expanding a Set of the same information
-  let unique_emails = [...new Set(all_customers.data.map(customer => customer.email))];
+  let unique_emails = [...new Set(all_customers.data.map(customer => customer.name || customer.email))];
+  console.log(all_customers);
   // let unique_names = [...new Set(all_customers.data.map(item => item.name))];
 
   if (all_customers)
