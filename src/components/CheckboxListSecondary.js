@@ -67,7 +67,7 @@ export default function CheckboxListSecondary() {
               <ListItemAvatar>
                 <Avatar
                   // alt={`Avatar n°${value + 1}`}
-                  src={`https://avataaars.io/?avatarStyle=Circle&topType=ShortHairDreads02&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=AngryNatural&mouthType=Default&skinColor=Light`}
+                  src={`https://avataaars.io/?accessoriesType=Prescription01&avatarStyle=Circle&clotheType=Hoodie&eyeType=Dizzy&eyebrowType=SadConcerned&facialHairType=BeardLight&hairColor=PastelPink&mouthType=Default&skinColor=Brown&topType=LongHairFrida`}
                 />
               </ListItemAvatar>
               <ListItemText primary={email} />
