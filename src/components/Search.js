@@ -25,9 +25,7 @@ function Search() {
             person.toLowerCase().includes(searchTerm)
         );
         setSearchResults(results);
-        // console.log(results);
         console.log(searchResults);
-        // console.log(searchTerm)
     }, [searchTerm]);
 
     return (
