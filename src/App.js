@@ -5,7 +5,7 @@ import Search from './components/Search';
 import SnackyBar from './components/SnackyBar';
 import PrettyButton from './components/PrettyButton';
 import LogRocket from 'logrocket';
-import CheckboxListSecondary from './components/CheckboxListSecondary';
+import StripeList from './components/StripeList';
 
 LogRocket.init('usduoh/clever-programmer-react-apps');
 
@@ -41,7 +41,7 @@ function App() {
 
       <header className="App-header">
         <PrettyButton />
-        <CheckboxListSecondary />
+        <StripeList />
 
         <SnackyBar />
         <Search />

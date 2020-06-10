@@ -31,7 +31,7 @@ const loadCustomers = async () =>
     .then(res => res.json());
 
 
-export default function CheckboxListSecondary() {
+export default function StripeList() {
   const classes = useStyles();
   const [checked, setChecked] = React.useState([1]);
 
