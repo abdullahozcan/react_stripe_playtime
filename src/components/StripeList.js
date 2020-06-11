@@ -20,6 +20,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const spanStyle = {
+  color: 'green',
+};
+
+
 let params = { limit: 20 }
 const stripe_auth = { "Authorization": `Bearer ${process.env.REACT_APP_STRIPE_API_KEY}` }
 const stripe_url = `https://api.stripe.com/v1/charges?limit=${params.limit}`;
@@ -33,10 +38,6 @@ const loadCustomers = async () =>
     headers: stripe_auth
   }).then(res => (res.ok ? res : Promise.reject(res)))
     .then(res => res.json());
-
-
-
-
 
 export default function StripeList() {
   const classes = useStyles();
@@ -59,20 +60,6 @@ export default function StripeList() {
   if (isLoading) return "Loading..."
   if (error) return `Something went wrong: ${error.message}`
 
-  // Get only unique by expanding a Set of the same information
-  // let unique_emails = [...new Set(all_customers.data.map(customer => customer.amount || customer.receipt_url))];
-  console.log(all_customers);
-  // let unique_names = [...new Set(all_customers.data.map(item => item.name))];
-
-  const spanStyle = {
-    color: 'green',
-  };
-
-
-
-
-  // const classes = useStyles();
-
 
   if (all_customers)
 
@@ -82,25 +69,26 @@ export default function StripeList() {
       <List dense className={classes.root}>
         {all_customers.data.map(charge => {
           // const labelId = `checkbox-list-secondary-label-${value}`;
-          return (
-            <ListItem button>
-              <ListItemAvatar>
-                <Avatar
-                  // alt={`Avatar n°${value + 1}`}
-                  src={`https://avataaars.io/?accessoriesType=Prescription01&avatarStyle=Circle&clotheType=Hoodie&eyeType=Dizzy&eyebrowType=SadConcerned&facialHairType=BeardLight&hairColor=PastelPink&mouthType=Default&skinColor=Brown&topType=LongHairFrida`}
-                />
-              </ListItemAvatar>
-              <span style={spanStyle}><ListItemText primary={`🤑 +$${charge.amount / 100}`} secondary={charge.receipt_email} /></span>
-              <ListItemSecondaryAction>
-                <Checkbox
-                  edge="end"
-                // onChange={handleToggle(value)}
-                // checked={checked.indexOf(value) !== -1}
-                // inputProps={{ 'aria-labelledby': labelId }}
-                />
-              </ListItemSecondaryAction>
-            </ListItem>
-          );
+          if (charge.paid)
+            return (
+              <ListItem button>
+                <ListItemAvatar>
+                  <Avatar
+                    // alt={`Avatar n°${value + 1}`}
+                    src={`https://avataaars.io/?accessoriesType=Prescription01&avatarStyle=Circle&clotheType=Hoodie&eyeType=Dizzy&eyebrowType=SadConcerned&facialHairType=BeardLight&hairColor=PastelPink&mouthType=Default&skinColor=Brown&topType=LongHairFrida`}
+                  />
+                </ListItemAvatar>
+                <span style={spanStyle}><ListItemText primary={`🤑 +$${charge.amount / 100}`} secondary={charge.receipt_email} /></span>
+                <ListItemSecondaryAction>
+                  <Checkbox
+                    edge="end"
+                  // onChange={handleToggle(value)}
+                  // checked={checked.indexOf(value) !== -1}
+                  // inputProps={{ 'aria-labelledby': labelId }}
+                  />
+                </ListItemSecondaryAction>
+              </ListItem>
+            );
         })}
       </List>
     );
