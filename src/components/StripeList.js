@@ -61,6 +61,12 @@ export default function StripeList() {
   if (error) return `Something went wrong: ${error.message}`
 
 
+  const skinColors = ['Tanned', 'Yellow', 'Pale', 'Light', 'Brown', 'DarkBrown', 'Black']
+  const topTypes = ["LongHairFrida", "LongHairFro", "WinterHat4", "Hijab", "WinterHat1", "LongHairDreads", "Hat"]
+  const hairColors = ["BrownDark", "PastelPink", "BlondeGolden", "Red", "Black"]
+  const accessoriesTypes = ["Blank", "Kurt", "Prescription1", "Sunglasses"]
+
+
   if (all_customers)
 
 
@@ -69,13 +75,19 @@ export default function StripeList() {
       <List dense className={classes.root}>
         {all_customers.data.map(charge => {
           // const labelId = `checkbox-list-secondary-label-${value}`;
+          const randomSkinColor = skinColors[Math.floor(Math.random() * skinColors.length)]
+          const randomTop = topTypes[Math.floor(Math.random() * topTypes.length)]
+          const randomHairColor = hairColors[Math.floor(Math.random() * hairColors.length)]
+          const randomAccessory = accessoriesTypes[Math.floor(Math.random() * accessoriesTypes.length)]
+
           if (charge.paid)
             return (
               <ListItem button>
                 <ListItemAvatar>
                   <Avatar
                     // alt={`Avatar n°${value + 1}`}
-                    src={`https://avataaars.io/?accessoriesType=Prescription01&avatarStyle=Circle&clotheType=Hoodie&eyeType=Dizzy&eyebrowType=SadConcerned&facialHairType=BeardLight&hairColor=PastelPink&mouthType=Default&skinColor=Brown&topType=LongHairFrida`}
+
+                    src={`https://avataaars.io/?accessoriesType=${randomAccessory}&avatarStyle=Transparent&clotheType=Hoodie&eyeType=Dizzy&eyebrowType=SadConcerned&facialHairType=BeardLight&hairColor=${randomHairColor}&mouthType=Default&skinColor=${randomSkinColor}&topType=${randomTop}`}
                   />
                 </ListItemAvatar>
                 <span style={spanStyle}><ListItemText primary={`🤑 +$${charge.amount / 100}`} secondary={charge.receipt_email} /></span>
