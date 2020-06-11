@@ -61,11 +61,16 @@ export default function StripeList() {
   if (error) return `Something went wrong: ${error.message}`
 
 
+
+  // Use this for genders https://api.genderize.io?name=peter
+
   const skinColors = ['Tanned', 'Yellow', 'Pale', 'Light', 'Brown', 'DarkBrown', 'Black']
   const topTypes = ["LongHairFrida", "LongHairFro", "WinterHat4", "Hijab", "WinterHat1", "LongHairDreads", "Hat"]
   const hairColors = ["BrownDark", "PastelPink", "BlondeGolden", "Red", "Black"]
   const accessoriesTypes = ["Blank", "Kurt", "Prescription1", "Sunglasses"]
-
+  const facialHairTypes = ["blank", "BeardMedium", "BeardMagestic", "MoustacheFancy"]
+  const eyeTypes = ["Default", "Cry", "EyeRoll", "Dizzy", "MoustacheFancy", "Hearts", "WinkWacky", "Hearts", "Hearts"]
+  const mouthTypes = ['Eating', 'Tongue', 'Vomit', 'ScreamOpen', 'Smile', 'Grimace', 'Concerned']
 
   if (all_customers)
 
@@ -79,6 +84,9 @@ export default function StripeList() {
           const randomTop = topTypes[Math.floor(Math.random() * topTypes.length)]
           const randomHairColor = hairColors[Math.floor(Math.random() * hairColors.length)]
           const randomAccessory = accessoriesTypes[Math.floor(Math.random() * accessoriesTypes.length)]
+          const randomFacialHair = facialHairTypes[Math.floor(Math.random() * facialHairTypes.length)]
+          const randomEyeType = eyeTypes[Math.floor(Math.random() * eyeTypes.length)]
+          const randomMouthType = mouthTypes[Math.floor(Math.random() * mouthTypes.length)]
 
           if (charge.paid)
             return (
@@ -87,10 +95,10 @@ export default function StripeList() {
                   <Avatar
                     // alt={`Avatar n°${value + 1}`}
 
-                    src={`https://avataaars.io/?accessoriesType=${randomAccessory}&avatarStyle=Transparent&clotheType=Hoodie&eyeType=Dizzy&eyebrowType=SadConcerned&facialHairType=BeardLight&hairColor=${randomHairColor}&mouthType=Default&skinColor=${randomSkinColor}&topType=${randomTop}`}
+                    src={`https://avataaars.io/?accessoriesType=${randomAccessory}&avatarStyle=Circle&clotheType=Hoodie&eyeType=${randomEyeType}&eyebrowType=SadConcerned&facialHairType=${randomFacialHair}&hairColor=${randomHairColor}&mouthType=${randomMouthType}&skinColor=${randomSkinColor}&topType=${randomTop}`}
                   />
                 </ListItemAvatar>
-                <span style={spanStyle}><ListItemText primary={`🤑 +$${charge.amount / 100}`} secondary={charge.receipt_email} /></span>
+                <span style={spanStyle}><ListItemText primary={`🤑 +$${charge.amount / 100}`} secondary={`${charge.receipt_email}`} /></span>
                 <ListItemSecondaryAction>
                   <Checkbox
                     edge="end"
