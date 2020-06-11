@@ -11,14 +11,18 @@ import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 360,
-    backgroundColor: "#1A1F37",
+    width: '100%',
+    maxWidth: '36ch',
+    backgroundColor: theme.palette.background.paper,
+  },
+  inline: {
+    display: 'inline',
   },
 }));
 
 let params = { limit: 20 }
 const stripe_auth = { "Authorization": `Bearer ${process.env.REACT_APP_STRIPE_API_KEY}` }
-const stripe_url = `https://api.stripe.com/v1/customers?limit=${params.limit}`;
+const stripe_url = `https://api.stripe.com/v1/charges?limit=${params.limit}`;
 
 
 // https://css-tricks.com/fetching-data-in-react-using-react-async/
@@ -29,6 +33,9 @@ const loadCustomers = async () =>
     headers: stripe_auth
   }).then(res => (res.ok ? res : Promise.reject(res)))
     .then(res => res.json());
+
+
+
 
 
 export default function StripeList() {
@@ -53,15 +60,27 @@ export default function StripeList() {
   if (error) return `Something went wrong: ${error.message}`
 
   // Get only unique by expanding a Set of the same information
-  let unique_emails = [...new Set(all_customers.data.map(customer => customer.name || customer.email))];
+  // let unique_emails = [...new Set(all_customers.data.map(customer => customer.amount || customer.receipt_url))];
   console.log(all_customers);
   // let unique_names = [...new Set(all_customers.data.map(item => item.name))];
 
+  const spanStyle = {
+    color: 'green',
+  };
+
+
+
+
+  // const classes = useStyles();
+
+
   if (all_customers)
 
+
     return (
+
       <List dense className={classes.root}>
-        {unique_emails.map(email => {
+        {all_customers.data.map(charge => {
           // const labelId = `checkbox-list-secondary-label-${value}`;
           return (
             <ListItem button>
@@ -71,7 +90,7 @@ export default function StripeList() {
                   src={`https://avataaars.io/?accessoriesType=Prescription01&avatarStyle=Circle&clotheType=Hoodie&eyeType=Dizzy&eyebrowType=SadConcerned&facialHairType=BeardLight&hairColor=PastelPink&mouthType=Default&skinColor=Brown&topType=LongHairFrida`}
                 />
               </ListItemAvatar>
-              <ListItemText primary={email} />
+              <span style={spanStyle}><ListItemText primary={`🤑 +$${charge.amount / 100}`} secondary={charge.receipt_email} /></span>
               <ListItemSecondaryAction>
                 <Checkbox
                   edge="end"

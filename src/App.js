@@ -3,7 +3,6 @@ import { useAsync } from 'react-async';
 import logo from './logo.svg';
 import Search from './components/Search';
 import SnackyBar from './components/SnackyBar';
-import PrettyButton from './components/PrettyButton';
 import LogRocket from 'logrocket';
 import StripeList from './components/StripeList';
 
@@ -58,6 +57,7 @@ function App() {
           Learn React
           </a>
       </header>
+
 
     </div>
   )
