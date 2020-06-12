@@ -24,7 +24,7 @@ function BasicCheckout() {
     };
     return (
         <Button variant="contained" color="primary" role="link" onClick={handleClick}>
-            💰 Charge $1.5k/month
+            💰 Charge $1k/month
     </Button>
     );
 }
