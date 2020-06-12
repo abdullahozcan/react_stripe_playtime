@@ -25,9 +25,9 @@ function App() {
         <h2>
           <span style={{ color: "#ff9d00" }}>Clever Programmer </span> Headquarters where you
           <TextLoop springConfig={{ stiffness: 340, damping: 30 }}>
-            <span style={{ color: 'green' }}>&#8287;increase your <span style={{ color: 'green', textDecoration: "underline" }}>sales</span> 🤑</span>
-            <span style={{ color: '#87F5FB', fontStyle: "italic" }}>&#8287;monitor biz <span style={{ textDecoration: "underline" }}>metrics</span> 🔥</span>
-            <span style={{ color: "#DE3C4B", fontStyle: "italic" }}>&#8287;unlock your potential 📈</span>
+            <span style={{ color: 'green' }}>&#8287;increase your sales 🤑</span>
+            <span style={{ color: '#9D44B5' }}>&#8287;monitor biz metrics 🔥</span>
+            <span style={{ color: "#DE3C4B" }}>&#8287;unlock your potential 📈</span>
           </TextLoop>
         </h2>
         <span><PsCheckout500 /> <BasicCheckout /></span>
