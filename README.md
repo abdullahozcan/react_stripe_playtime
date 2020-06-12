@@ -9,9 +9,7 @@ To do so...
 2. Create variable called `REACT_APP_STRIPE_API_KEY=yourApiKeyGoesHere`
 3. Open up command line and do `npm start`
 
-You can now deploy & play with this project with one click using CODESANDBOX
-
-[![Edit CleverProgrammer/react_stripe_playtime](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/CleverProgrammer/react_stripe_playtime/tree/master/?fontsize=14&hidenavigation=1&theme=dark)
+Here is the [LIVE APP](https://cpreact.com)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
