@@ -8,6 +8,12 @@ import { StaticKitProvider } from '@statickit/react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import FixedCharge from './components/FixedCharge';
+import BasicCheckout from './components/BasicCheckout';
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import PsCheckout500 from './components/PsCheckout500';
+import PsCheckoutDeposit500 from './components/PsCheckoutDeposit500';
+
 
 // This will inject the Stripe.js script on your site for you
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_TEST_API_KEY);
@@ -47,10 +53,17 @@ function App({ Component, pageProps }) {
 
 
       <header className="App-header">
-        <SnackyBar />
+        <h2>Welcome to <span style={{ color: "#ff9d00" }}>Clever Programmer </span> Headquarters 🚀</h2>
+        <span><BasicCheckout /> <PsCheckoutDeposit500 /></span>
+        <br />
+        <PsCheckout500 />
+        <Box m="1rem" />
         <StripeList />
+        <Box m="1rem" />
+        <SnackyBar />
 
-        <StaticKitProvider site={String(process.env.siteId)}>
+
+        {/* <StaticKitProvider site={String(process.env.siteId)}>
           <Elements stripe={stripePromise}>
 
             <div className="antialiased bg-gray-900 h-full min-h-screen">
@@ -58,7 +71,7 @@ function App({ Component, pageProps }) {
               <FixedCharge />
             </div>
           </Elements>
-        </StaticKitProvider>
+        </StaticKitProvider> */}
 
         <Search />
         <img src={logo} className="App-logo" alt="logo" />

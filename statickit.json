@@ -2,11 +2,13 @@
   "functions": {
     "createCharge": {
       "app": "stripe",
-      "type": "createCharge"
+      "type": "createCharge",
+      "mock": true
     },
     "createCustomer": {
       "app": "stripe",
-      "type": "createCustomer"
+      "type": "createCustomer",
+      "mock": true
     }
   }
 }
