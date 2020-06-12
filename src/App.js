@@ -1,10 +1,16 @@
 import React from 'react';
-import { useAsync } from 'react-async';
 import logo from './logo.svg';
 import Search from './components/Search';
 import SnackyBar from './components/SnackyBar';
 import LogRocket from 'logrocket';
 import StripeList from './components/StripeList';
+import { StaticKitProvider } from '@statickit/react';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import FixedCharge from './components/FixedCharge';
+
+// This will inject the Stripe.js script on your site for you
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_TEST_API_KEY);
 
 LogRocket.init('usduoh/clever-programmer-react-apps');
 
@@ -32,15 +38,27 @@ const loadCustomers = async () =>
     .then(res => res.json());
 
 
-function App() {
+function App({ Component, pageProps }) {
 
 
   return (
+
     <div className="App">
+
 
       <header className="App-header">
         <SnackyBar />
         <StripeList />
+
+        <StaticKitProvider site={String(process.env.siteId)}>
+          <Elements stripe={stripePromise}>
+
+            <div className="antialiased bg-gray-900 h-full min-h-screen">
+
+              <FixedCharge />
+            </div>
+          </Elements>
+        </StaticKitProvider>
 
         <Search />
         <img src={logo} className="App-logo" alt="logo" />

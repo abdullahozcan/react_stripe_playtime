@@ -6,6 +6,8 @@
     "@material-ui/core": "^4.10.1",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.55",
+    "@statickit/functions": "github:unstacked/statickit-functions#82e92d56-7db2-4e1a-8655-a8846bf35929",
+    "@statickit/react": "^2.1.1",
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.7.0",
     "@testing-library/jest-dom": "^4.2.4",
