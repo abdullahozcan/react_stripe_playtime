@@ -13,7 +13,6 @@ function BasicCheckout() {
             lineItems: [
                 // Replace with the ID of your price
                 { price: 'price_1Gt7eZAmH5VbdPbpo1rLBDcF', quantity: 1 },
-                { price: 'price_1Gt8H1AmH5VbdPbpDROT5RE2', quantity: 1 },
             ],
             mode: 'subscription',
             successUrl: 'https://example.com/success',
@@ -25,7 +24,7 @@ function BasicCheckout() {
     };
     return (
         <Button variant="contained" color="primary" role="link" onClick={handleClick}>
-            💰 Charge $1k/month
+            💰 Charge $1.5k/month
     </Button>
     );
 }
