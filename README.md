@@ -1,4 +1,7 @@
-## Working on building a financial dashboard for Clever Programmer using Stripe & React
+## Clever Programmer Headquarters 
+Working on building a financial dashboard for Clever Programmer using Stripe & React
+
+![CP React](https://i.imgur.com/R3zGhQC.png)
 
 In order to use the app, make sure to update your env file with either a TEST stripe key or LIVE stripe key.
 To do so...
@@ -8,8 +11,6 @@ To do so...
 1. Create an `.env` file.
 2. Create variable called `REACT_APP_STRIPE_API_KEY=yourApiKeyGoesHere`
 3. Open up command line and do `npm start`
-
-![CP React](https://i.imgur.com/R3zGhQC.png)
 
 Here is the [LIVE APP](https://cpreact.com)
 
