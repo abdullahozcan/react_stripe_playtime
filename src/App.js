@@ -30,7 +30,9 @@ function App() {
             <span style={{ color: "#DE3C4B" }}>&#8287;unlock your potential 📈</span>
           </TextLoop>
         </h2>
-        <span><PsCheckout500 /> <BasicCheckout /></span>
+        <span><PsCheckout500 />
+          <Box m="0.4rem" />
+          <BasicCheckout /></span>
         <br />
         <span><PsCheckoutDeposit500 /> <PsCheckout3k /></span>
         <Box m="0.4rem" />

@@ -15,8 +15,8 @@ function PsCheckoutDeposit500() {
                 { price: 'price_1Gt8H2AmH5VbdPbplEUMTZ9p', quantity: 1 },
             ],
             mode: 'payment',
-            successUrl: 'https://example.com/success',
-            cancelUrl: 'https://example.com/cancel',
+            successUrl: 'https://cpreact.com/success',
+            cancelUrl: 'https://cpreact.com/cancel',
         });
         // If `redirectToCheckout` fails due to a browser or network
         // error, display the localized error message to your customer
