@@ -3,18 +3,12 @@ import logo from './logo.svg';
 import Search from './components/Search';
 import SnackyBar from './components/SnackyBar';
 import StripeList from './components/StripeList';
-import { loadStripe } from '@stripe/stripe-js';
 import BasicCheckout from './components/BasicCheckout';
 import Box from '@material-ui/core/Box';
 import PsCheckout500 from './components/PsCheckout500';
 import PsCheckoutDeposit500 from './components/PsCheckoutDeposit500';
 import PsCheckout3k from './components/PsCheckout3k';
 import TextLoop from "react-text-loop";
-
-
-
-// This will inject the Stripe.js script on your site for you
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_TEST_API_KEY);
 
 function App() {
   return (

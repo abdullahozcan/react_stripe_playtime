@@ -9,6 +9,10 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Checkbox from '@material-ui/core/Checkbox';
 import Avatar from '@material-ui/core/Avatar';
 
+var moment = require('moment'); // require
+
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -39,6 +43,7 @@ const loadCustomers = async () =>
   }).then(res => (res.ok ? res : Promise.reject(res)))
     .then(res => res.json());
 
+
 export default function StripeList() {
   const classes = useStyles();
 
@@ -59,7 +64,7 @@ export default function StripeList() {
                     src={`https://avatars.dicebear.com/api/avataaars/${Math.random()}.svg`}
                   />
                 </ListItemAvatar>
-                <span style={spanStyle}><ListItemText primary={`🤑 +$${charge.amount / 100}`} secondary={`${charge.receipt_email}`} /></span>
+                <span style={spanStyle}><ListItemText primary={`🤑 +$${charge.amount / 100}`} secondary={`${charge.receipt_email} ${String(moment.unix(charge.created).fromNow())}`} /></span>
                 <ListItemSecondaryAction>
                   <Checkbox
                     edge="end"
