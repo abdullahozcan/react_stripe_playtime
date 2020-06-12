@@ -9,6 +9,8 @@ import Box from '@material-ui/core/Box';
 import PsCheckout500 from './components/PsCheckout500';
 import PsCheckoutDeposit500 from './components/PsCheckoutDeposit500';
 import PsCheckout3k from './components/PsCheckout3k';
+import TextLoop from "react-text-loop";
+
 
 
 // This will inject the Stripe.js script on your site for you
@@ -20,7 +22,14 @@ function App() {
     <div className="App">
 
       <header className="App-header">
-        <h2>Welcome to <span style={{ color: "#ff9d00" }}>Clever Programmer </span> Headquarters 🚀</h2>
+        <h2>
+          <span style={{ color: "#ff9d00" }}>Clever Programmer </span> Headquarters where you
+          <TextLoop springConfig={{ stiffness: 340, damping: 30 }}>
+            <span style={{ color: 'green' }}>&#8287;increase your <span style={{ color: 'green', textDecoration: "underline" }}>sales</span> 🤑</span>
+            <span style={{ color: '#87F5FB', fontStyle: "italic" }}>&#8287;monitor biz <span style={{ textDecoration: "underline" }}>metrics</span> 🔥</span>
+            <span style={{ color: "#DE3C4B", fontStyle: "italic" }}>&#8287;unlock your potential 📈</span>
+          </TextLoop>
+        </h2>
         <span><PsCheckout500 /> <BasicCheckout /></span>
         <br />
         <span><PsCheckoutDeposit500 /> <PsCheckout3k /></span>

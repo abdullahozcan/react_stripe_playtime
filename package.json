@@ -20,6 +20,7 @@
     "react-async": "^10.0.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
+    "react-text-loop": "^2.3.0",
     "stripe": "^8.60.0"
   },
   "scripts": {
