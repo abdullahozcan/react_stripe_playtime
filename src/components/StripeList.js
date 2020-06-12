@@ -12,7 +12,7 @@ import Avatar from '@material-ui/core/Avatar';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
-    maxWidth: '36ch',
+    maxWidth: '28ch',
     backgroundColor: theme.palette.background.paper,
   },
   inline: {
@@ -41,70 +41,28 @@ const loadCustomers = async () =>
 
 export default function StripeList() {
   const classes = useStyles();
-  const [checked, setChecked] = React.useState([1]);
-
-  const handleToggle = (value) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
 
   const { data: all_customers, error, isLoading } = useAsync({ promiseFn: loadCustomers })
   if (isLoading) return "Loading..."
   if (error) return `Something went wrong: ${error.message}`
 
-
-
-  // Use this for genders https://api.genderize.io?name=peter
-
-  const skinColors = ['Tanned', 'Yellow', 'Pale', 'Light', 'Brown', 'DarkBrown', 'Black']
-  const topTypes = ["LongHairFrida", "LongHairFro", "WinterHat4", "Hijab", "WinterHat1", "LongHairDreads", "Hat"]
-  const hairColors = ["BrownDark", "PastelPink", "BlondeGolden", "Red", "Black"]
-  const accessoriesTypes = ["Blank", "Kurt", "Prescription1", "Sunglasses"]
-  const facialHairTypes = ["blank", "BeardMedium", "BeardMagestic", "MoustacheFancy"]
-  const eyeTypes = ["Default", "Cry", "EyeRoll", "Dizzy", "MoustacheFancy", "Hearts", "WinkWacky", "Hearts", "Hearts"]
-  const mouthTypes = ['Eating', 'Tongue', 'Vomit', 'ScreamOpen', 'Smile', 'Grimace', 'Concerned']
-
   if (all_customers)
-
-
     return (
 
       <List dense className={classes.root}>
         {all_customers.data.map(charge => {
-          // const labelId = `checkbox-list-secondary-label-${value}`;
-          const randomSkinColor = skinColors[Math.floor(Math.random() * skinColors.length)]
-          const randomTop = topTypes[Math.floor(Math.random() * topTypes.length)]
-          const randomHairColor = hairColors[Math.floor(Math.random() * hairColors.length)]
-          const randomAccessory = accessoriesTypes[Math.floor(Math.random() * accessoriesTypes.length)]
-          const randomFacialHair = facialHairTypes[Math.floor(Math.random() * facialHairTypes.length)]
-          const randomEyeType = eyeTypes[Math.floor(Math.random() * eyeTypes.length)]
-          const randomMouthType = mouthTypes[Math.floor(Math.random() * mouthTypes.length)]
-
           if (charge.paid)
             return (
               <ListItem button>
                 <ListItemAvatar>
                   <Avatar
-                    // alt={`Avatar n°${value + 1}`}
-
-                    src={`https://avataaars.io/?accessoriesType=${randomAccessory}&avatarStyle=Circle&clotheType=Hoodie&eyeType=${randomEyeType}&eyebrowType=SadConcerned&facialHairType=${randomFacialHair}&hairColor=${randomHairColor}&mouthType=${randomMouthType}&skinColor=${randomSkinColor}&topType=${randomTop}`}
+                    src={`https://avatars.dicebear.com/api/avataaars/${Math.random()}.svg`}
                   />
                 </ListItemAvatar>
                 <span style={spanStyle}><ListItemText primary={`🤑 +$${charge.amount / 100}`} secondary={`${charge.receipt_email}`} /></span>
                 <ListItemSecondaryAction>
                   <Checkbox
                     edge="end"
-                  // onChange={handleToggle(value)}
-                  // checked={checked.indexOf(value) !== -1}
-                  // inputProps={{ 'aria-labelledby': labelId }}
                   />
                 </ListItemSecondaryAction>
               </ListItem>

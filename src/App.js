@@ -19,12 +19,12 @@ function App() {
 
     <div className="App">
 
-
       <header className="App-header">
         <h2>Welcome to <span style={{ color: "#ff9d00" }}>Clever Programmer </span> Headquarters 🚀</h2>
-        <span><BasicCheckout /> <PsCheckoutDeposit500 /></span>
+        <span><PsCheckout500 /> <BasicCheckout /></span>
         <br />
-        <span><PsCheckout3k /> <PsCheckout500 /></span>
+        <span><PsCheckoutDeposit500 /> <PsCheckout3k /></span>
+        <Box m="0.4rem" />
         <Box m="1rem" />
         <StripeList />
         <Box m="1rem" />
