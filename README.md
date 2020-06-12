@@ -1,4 +1,4 @@
-## Clever Programmer Headquarters 
+## [Clever Programmer Headquarters](https://cpreact.com)
 Working on building a financial dashboard for Clever Programmer using Stripe & React
 
 ![CP React](https://i.imgur.com/R3zGhQC.png)
