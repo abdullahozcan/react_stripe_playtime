@@ -64,11 +64,12 @@ export default function StripeList() {
                     src={`https://avatars.dicebear.com/api/avataaars/${Math.random()}.svg`}
                   />
                 </ListItemAvatar>
-                <span style={spanStyle}><ListItemText primary={`🤑 +$${charge.amount / 100}`} secondary={`${charge.receipt_email} ${String(moment.unix(charge.created).fromNow())}`} /></span>
+                <span style={spanStyle}><ListItemText primary={`🤑
+                +$${charge.amount / 100}`}
+                  secondary={[`${charge.receipt_email}`, <strong> {String(moment.unix(charge.created).fromNow())}</strong>]}
+                /></span>
                 <ListItemSecondaryAction>
-                  <Checkbox
-                    edge="end"
-                  />
+                  <Checkbox edge="end" />
                 </ListItemSecondaryAction>
               </ListItem>
             );
