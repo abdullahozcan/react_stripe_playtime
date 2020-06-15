@@ -9,6 +9,7 @@ import PsCheckout500 from './components/PsCheckout500';
 import PsCheckoutDeposit500 from './components/PsCheckoutDeposit500';
 import PsCheckout3k from './components/PsCheckout3k';
 import TextLoop from "react-text-loop";
+import Button from "@material-ui/core/Button";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
             <span style={{ color: "#DE3C4B" }}>&#8287;unlock your potential 📈</span>
           </TextLoop>
         </h2>
+        <Button variant="contained" color="primary" role="link">
+          <a href="https://f449ac338829.ngrok.io/">PS Payment 💰</a>
+        </Button>
         <span><PsCheckout500 />
           <Box m="0.4rem" />
           <BasicCheckout /></span>

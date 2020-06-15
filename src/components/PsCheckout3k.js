@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe('pk_test_IYu0gaTp2CveAO2Oud1KiQzS');
 
-function PsCheckout500() {
+function PsCheckout3k() {
     const handleClick = async (event) => {
         // When the customer clicks on the button, redirect them to Checkout.
         const stripe = await stripePromise;
@@ -15,8 +15,8 @@ function PsCheckout500() {
                 { price: 'price_1Gt8nPAmH5VbdPbpaSBek0Sa', quantity: 1 },
             ],
             mode: 'payment',
-            successUrl: 'https://example.com/success',
-            cancelUrl: 'https://example.com/cancel',
+            successUrl: 'https://cpreact.com/success',
+            cancelUrl: 'https://cpreact.com/cancel',
         });
         // If `redirectToCheckout` fails due to a browser or network
         // error, display the localized error message to your customer
@@ -29,4 +29,4 @@ function PsCheckout500() {
     );
 }
 
-export default PsCheckout500;
+export default PsCheckout3k;

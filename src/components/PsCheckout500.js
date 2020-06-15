@@ -15,8 +15,8 @@ function PsCheckout500() {
                 { price: 'price_1Gt8H1AmH5VbdPbpDROT5RE2', quantity: 1 },
             ],
             mode: 'subscription',
-            successUrl: 'https://example.com/success',
-            cancelUrl: 'https://example.com/cancel',
+            successUrl: 'https://cpreact.com/success',
+            cancelUrl: 'https://cpreact.com/cancel',
         });
         // If `redirectToCheckout` fails due to a browser or network
         // error, display the localized error message to your customer

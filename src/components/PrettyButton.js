@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Button from "@material-ui/core/Button";
 
-function PrettyButton(text, onClickFunction) {
+function PrettyButton() {
   return (
-    <Button variant="contained" color="primary" onclick={onClickFunction || ""}>
-      {text}
+    <Button variant="contained" color="primary">
+      Hello World
     </Button>
   );
 }
