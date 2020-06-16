@@ -26,7 +26,7 @@ function App() {
           </TextLoop>
         </h2>
         <Button variant="contained" color="primary" role="link">
-          <a href="https://0b6dae5553fe.ngrok.io/">PS Payment 💰</a>
+          <a href="https://stripe-ps-payments.web.app/">PS Payment 💰</a>
         </Button>
         <span><PsCheckout500 />
           <Box m="0.4rem" />
