@@ -3,7 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import Button from "@material-ui/core/Button";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-const stripePromise = loadStripe('pk_test_IYu0gaTp2CveAO2Oud1KiQzS');
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 function PsCheckout3k() {
     const handleClick = async (event) => {

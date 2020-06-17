@@ -4,7 +4,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import logo from './logo.svg';
 import './App.css';
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_TEST_API_KEY);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 class CheckoutForm extends React.Component {
   handleSubmit = async (event) => {
